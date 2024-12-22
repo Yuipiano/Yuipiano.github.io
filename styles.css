@@ -53,7 +53,7 @@ main section {
 }
 
 .profile-pic {
-    max-width: 40%; /* 親要素の幅に合わせてリサイズ */
+    max-width: 50%; /* 親要素の幅に合わせてリサイズ */
     height: auto;    /* アスペクト比を維持 */
     border-radius: 0; /* 切り取りを無効化 */
 }
@@ -142,7 +142,7 @@ main {
 }
 
 .profile-container {
-    width: 60%;          /* 幅を60%に設定 */
+    width: 80%;          /* 幅を60%に設定 */
     margin: 0 auto;      /* 中央揃え */
     text-align: left;    /* 文章を左寄せ */
     padding: 20px;       /* 必要に応じて内側の余白を追加 */
@@ -186,5 +186,5 @@ form button:hover {
 }
 
 #gallery {
-    margin-bottom: -120px; /* 必要に応じて調整 */
+    margin-bottom: -100px; /* 必要に応じて調整 */
 }
