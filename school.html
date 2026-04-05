@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中本ピアノ教室</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Yu Mincho", "YuMincho", serif;
+      color: #4b403a;
+      background: #fcfaf8;
+      line-height: 1.95;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(860px, 90%);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 34px 0 20px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 1.9rem;
+      letter-spacing: 0.08em;
+      color: #5d4a42;
+      margin-bottom: 10px;
+    }
+
+    .top-note {
+      font-size: 0.95rem;
+      color: #8b7b72;
+    }
+
+    .hero {
+      padding: 52px 0 56px;
+    }
+
+    .hero-inner {
+      text-align: center;
+      padding: 32px 0 10px;
+    }
+
+    .hero-photo {
+      max-width: 620px;
+      margin: 0 auto 22px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #f6f0eb;
+      border: 1px solid #ece1da;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .hero-photo img {
+      display: block;
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .photo-caption {
+      padding: 8px 12px;
+      font-size: 0.84rem;
+      color: #8a7c75;
+      background: #fff;
+      text-align: right;
+    }
+
+    .hero-meta {
+      max-width: 620px;
+      margin: 0 auto 20px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      text-align: left;
+    }
+
+    .hero-meta-item {
+      background: #fff;
+      border: 1px solid #efe5df;
+      border-radius: 14px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      color: #665952;
+    }
+
+    .hero-meta-label {
+      display: block;
+      font-size: 0.8rem;
+      color: #8b7b72;
+      margin-bottom: 3px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.7;
+      font-weight: 500;
+      margin: 0 0 24px;
+      color: #4c3d36;
+    }
+
+    .hero p.lead {
+      font-size: 1.04rem;
+      max-width: 720px;
+      margin: 0 auto 24px;
+      color: #665952;
+    }
+
+    .simple-info {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 18px;
+      border-top: 1px solid #ded2ca;
+      border-bottom: 1px solid #ded2ca;
+      color: #6b5d55;
+      font-size: 0.96rem;
+    }
+
+    section {
+      padding: 54px 0;
+      border-top: 1px solid #eee4de;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 22px;
+      font-size: 1.7rem;
+      font-weight: 500;
+      color: #4f4038;
+    }
+
+    .section-text {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #665952;
+    }
+
+    .soft-box {
+      max-width: 760px;
+      margin: 28px auto 0;
+      background: #fff;
+      border: 1px solid #efe5df;
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .soft-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #56453d;
+    }
+
+    .soft-box ul {
+      margin: 0;
+      padding-left: 1.2em;
+    }
+
+    .teacher-box {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #efe5df;
+      border-radius: 18px;
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .teacher-photo {
+      width: 100%;
+      height: 100%;
+      min-height: 240px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #f6f0eb;
+      border: 1px solid #ece1da;
+    }
+
+    .teacher-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .teacher-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #56453d;
+      margin-bottom: 10px;
+    }
+
+    .teacher-text p {
+      margin-top: 0;
+      margin-bottom: 14px;
+      color: #665952;
+    }
+
+    .teacher-note {
+      font-size: 0.92rem;
+      color: #8a7c75;
+    }
+
+    .lesson-list {
+      display: grid;
+      gap: 18px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .lesson-item {
+      background: #fff;
+      border: 1px solid #efe5df;
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .lesson-item h3 {
+      margin: 0 0 10px;
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: #56453d;
+    }
+
+    .lesson-item ul {
+      margin: 0;
+      padding-left: 1.2em;
+    }
+
+    .schedule-panel,
+    .faq,
+    .contact-box {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .schedule-panel,
+    .faq-item,
+    .contact-box {
+      background: #fff;
+      border: 1px solid #efe5df;
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .schedule-time {
+      text-align: center;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      color: #8f6858;
+      margin: 10px 0;
+    }
+
+    .faq {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      color: #56453d;
+    }
+
+    .contact-box {
+      text-align: center;
+    }
+
+    .contact-links {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-link {
+      display: inline-block;
+      padding: 10px 0;
+      color: #6e574d;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    footer {
+      padding: 34px 0 50px;
+      text-align: center;
+      color: #7b6d66;
+      font-size: 0.95rem;
+    }
+
+    .small {
+      font-size: 0.92rem;
+      color: #8a7c75;
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        padding-top: 30px;
+      }
+
+      .hero h1 {
+        line-height: 1.55;
+      }
+
+      .hero-photo img {
+        height: 170px;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .teacher-box {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .teacher-photo {
+        max-width: 180px;
+        min-height: auto;
+        aspect-ratio: 1 / 1;
+      }
+
+      .soft-box,
+      .teacher-box,
+      .lesson-item,
+      .schedule-panel,
+      .faq-item,
+      .contact-box {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">中本ピアノ教室</div>
+      <div class="top-note">子どもから大人まで / ピアノ・ソルフェージュ・音大受験対応 / 2026年4月開講</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-photo">
+          <img src="figs/header.jpg" alt="ピアノの写真">
+        </div>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">アクセス</span>
+            ・西武新宿線沼袋駅より徒歩6分<br>・中野駅からバスと徒歩で10分
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">時間</span>
+            平日・休日ともに 9:00〜17:00<br>（この時間外でも相談可能です）
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">対象</span>
+            子どもから大人まで
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">使用楽器</span>
+            ヤマハのグランドピアノ
+          </div>
+        </div>
+        <h2>2026年４月に開講する小さなピアノ教室です</h2>
+        <p class="lead">
+          はじめてピアノに触れるお子さまから、趣味として楽しみたい大人の方、音大受験を目指す方まで。それぞれのご希望やペースに合わせて丁寧にレッスンできる教室を目指し、現在開講の準備を進めています。ソルフェージュにも対応予定です。
+        </p>
+        <div class="simple-info">ヤマハのグランドピアノで、ピアノ・ソルフェージュ・音大受験に対応予定です</div>
+      </div>
+      <div class="soft-box">
+          <h3>このような方に</h3>
+          <ul>
+            <li>お子さまに音楽を楽しく学んでほしい方</li>
+            <li>初めてピアノを始めたい方</li>
+            <li>もう一度ピアノを再開したい大人の方</li>
+            <li>音大受験に向けて準備を進めたい方</li>
+            <li>ソルフェージュを基礎から学びたい方</li>
+          </ul>
+        </div>
+    </section>
+
+    <section id="teacher">
+      <div class="container">
+        <h2 class="section-title">講師紹介</h2>
+        <div class="teacher-box">
+          <div class="teacher-photo">
+            <img src="figs/teacher.jpg" alt="講師写真">
+          </div>
+          <div class="teacher-text">
+            <div class="teacher-name">中本 優衣</div>
+            <p>
+              はじめまして。中本ピアノ教室では、音楽を楽しむ気持ちを大切にしながら、お一人おひとりに合わせた丁寧なレッスンを心がけています。
+            </p>
+            <p>
+              小さなお子さまのはじめてのピアノから、大人の方の趣味のレッスン、音大受験やソルフェージュまで、それぞれの目標やペースに寄り添いながら無理なく学べる時間をご一緒できればと思っています。
+            </p>
+            ピアニストとしてのプロフィールは<a href="https://yuipiano.github.io", class="contact-link">こちら</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="lessons">
+      <div class="container">
+        <h2 class="section-title">レッスン内容</h2>
+        <div class="lesson-list">
+          <div class="lesson-item">
+            <h3>子どものレッスン</h3>
+            <ul>
+              <li>はじめてのピアノ</li>
+              <li>音符やリズムの基礎</li>
+              <li>楽しく続けるためのステップアップ</li>
+              <li>学校伴奏や発表会に向けた練習</li>
+            </ul>
+          </div>
+
+          <div class="lesson-item">
+            <h3>大人のレッスン</h3>
+            <ul>
+              <li>初心者向けレッスン</li>
+              <li>憧れの曲に挑戦するレッスン</li>
+              <li>ブランクのある方向けの再開レッスン</li>
+              <li>基礎から学び直したい方向けレッスン</li>
+            </ul>
+          </div>
+
+          <div class="lesson-item">
+            <h3>音大受験対策</h3>
+            <ul>
+              <li>実技試験に向けた個別指導</li>
+              <li>志望校や受験内容に合わせたレッスン</li>
+              <li>表現力・基礎力の両面を意識した対策</li>
+            </ul>
+          </div>
+
+          <div class="lesson-item">
+            <h3>ソルフェージュレッスン</h3>
+            <ul>
+              <li>聴音</li>
+              <li>視唱</li>
+              <li>楽典</li>
+              <li>音楽の基礎力を総合的に身につける指導</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <h2 class="section-title">よくあるご質問</h2>
+        <div class="faq">
+          <div class="faq-item">
+            <h3>Q. まったくの初心者でも大丈夫ですか？</h3>
+            <p>はい。楽譜が読めない方、ピアノに初めて触れる方にも、基礎から丁寧にレッスンいたします。</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Q. 子どもと大人、どちらも通えますか？</h3>
+            <p>はい。お子さまから大人の方まで、幅広く対応しています。</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Q. 音大受験やソルフェージュにも対応していますか？</h3>
+            <p>はい。音大受験対策、聴音・視唱・楽典などのソルフェージュレッスンにも対応しています。</p>
+          </div>
+
+          <!-- <div class="faq-item">
+            <h3>Q. レッスンはいつ受けられますか？</h3>
+            <p>平日・休日ともに、9:00〜12:00の時間帯でレッスン可能です。</p>
+          </div> -->
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">お問い合わせ</h2>
+        <div class="contact-box">
+          <p>
+            開講時期や体験レッスンについては、どうぞお気軽にお問い合わせください。<br>
+            お子さまも大人の方も歓迎しております。
+          </p>
+          <div class="contact-links">
+            <a href="mailto:nakamotopianoschool@gmail.com" class="contact-link">メールで問い合わせる</a>
+          </div>
+          （メールが送れない場合は<a href="lesson.html", class="contact-link">こちら</a>のコンタクトフォームをご利用ください）
+          <p class="small" style="margin-top:18px; margin-bottom:0;">
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>中本ピアノ教室</strong></p>
+      <p>音楽を楽しむ時間を、これから少しずつ育てていける教室を目指しています。</p>
+    </div>
+  </footer>
+</body>
+</html>
