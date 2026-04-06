@@ -105,7 +105,7 @@
 
     .hero h1,
     .hero h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
       line-height: 1.7;
       font-weight: 500;
       margin: 0 0 24px;
@@ -176,16 +176,20 @@
       border: 1px solid #efe5df;
       border-radius: 18px;
       padding: 28px;
+    }
+
+    .teacher-main {
       display: grid;
       grid-template-columns: 180px 1fr;
       gap: 24px;
-      align-items: stretch;
+      align-items: start;
     }
 
     .teacher-photo {
       width: 100%;
-      height: 100%;
-      min-height: 240px;
+      height: auto;
+      min-height: auto;
+      aspect-ratio: 3 / 4;
       border-radius: 16px;
       overflow: hidden;
       background: #f6f0eb;
@@ -217,9 +221,48 @@
       color: #8a7c75;
     }
 
+    .profile-mini {
+      max-width: 520px;
+      margin: 20px auto 0;
+      padding: 16px 18px 12px;
+      background: #fcfaf8;
+      border: 1px solid #efe5df;
+      border-radius: 14px;
+    }
+
+    .profile-mini-title {
+      font-size: 0.95rem;
+      color: #8b7b72;
+      margin-bottom: 8px;
+    }
+
+    .profile-mini ul {
+      margin: 0 0 6px;
+      padding-left: 1.2em;
+      color: #665952;
+    }
+
+    .profile-mini-link {
+      margin: 6px 0 0;
+      font-size: 0.85rem;
+      color: #b0a59f;
+      line-height: 1.7;
+    }
+
+    .profile-mini-link a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .teacher-text {
+      min-width: 0;
+    }
+
     .lesson-list {
       display: grid;
-      gap: 18px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
       max-width: 760px;
       margin: 0 auto;
     }
@@ -228,7 +271,7 @@
       background: #fff;
       border: 1px solid #efe5df;
       border-radius: 18px;
-      padding: 24px;
+      padding: 20px 22px;
     }
 
     .lesson-item h3 {
@@ -241,6 +284,75 @@
     .lesson-item ul {
       margin: 0;
       padding-left: 1.2em;
+      line-height: 1.8;
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .price-card {
+      background: #fff;
+      border: 1px solid #efe5df;
+      border-radius: 18px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .price-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #56453d;
+    }
+
+    .price-time {
+      font-size: 0.95rem;
+      color: #8b7b72;
+      margin-bottom: 10px;
+    }
+
+    .price-amount {
+      font-size: 1.6rem;
+      color: #8f6858;
+      margin-bottom: 14px;
+    }
+
+    .price-card p {
+      margin: 0;
+      color: #665952;
+      font-size: 0.94rem;
+    }
+
+    .price-list {
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+      text-align: left;
+      color: #665952;
+      font-size: 0.95rem;
+      line-height: 1.9;
+    }
+
+    .price-list li {
+      border-top: 1px solid #f1e7e1;
+      padding: 10px 0;
+    }
+
+    .price-list li:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .price-note {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.88rem;
+      color: #8b7b72;
     }
 
     .schedule-panel,
@@ -278,11 +390,34 @@
     }
 
     .contact-box {
+      text-align: left;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 22px;
+      align-items: stretch;
+    }
+
+    .contact-card {
+      background: #fcfaf8;
+      border: 1px solid #efe5df;
+      border-radius: 16px;
+      padding: 22px;
       text-align: center;
     }
 
+    .contact-card h3 {
+      margin: 0 0 14px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #56453d;
+    }
+
     .contact-links {
-      margin-top: 18px;
+      margin-top: 14px;
       display: grid;
       gap: 10px;
     }
@@ -293,6 +428,28 @@
       color: #6e574d;
       text-decoration: underline;
       text-underline-offset: 4px;
+    }
+
+    .line-qr {
+      margin: 14px auto 10px;
+      max-width: 180px;
+    }
+
+    .line-qr img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid #ece1da;
+      border-radius: 12px;
+      background: #fff;
+      padding: 8px;
+    }
+
+    .line-note {
+      margin: 10px 0 0;
+      font-size: 0.9rem;
+      color: #8a7c75;
+      line-height: 1.8;
     }
 
     footer {
@@ -325,7 +482,7 @@
         grid-template-columns: 1fr;
       }
 
-      .teacher-box {
+      .teacher-main {
         grid-template-columns: 1fr;
         gap: 18px;
       }
@@ -344,12 +501,26 @@
         object-fit: cover;
       }
 
+      .price-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lesson-list {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
       .soft-box,
       .teacher-box,
       .lesson-item,
       .schedule-panel,
       .faq-item,
-      .contact-box {
+      .contact-box,
+      .price-card {
         padding: 22px;
       }
     }
@@ -393,36 +564,37 @@
         </p>
         <div class="simple-info">ヤマハのグランドピアノで、ピアノ・ソルフェージュ・音大受験に対応予定です</div>
       </div>
-      <div class="soft-box">
-        <h3>このような方に</h3>
-        <ul>
-          <li>お子さまに音楽を楽しく学んでほしい方</li>
-          <li>初めてピアノを始めたい方</li>
-          <li>もう一度ピアノを再開したい大人の方</li>
-          <li>音大受験に向けて準備を進めたい方</li>
-          <li>ソルフェージュを基礎から学びたい方</li>
-        </ul>
-      </div>
     </section>
 
     <section id="teacher">
       <div class="container">
         <h2 class="section-title">講師紹介</h2>
         <div class="teacher-box">
-          <div class="teacher-photo">
-            <img src="figs/teacher.jpg" alt="講師写真">
+          <div class="teacher-main">
+            <div class="teacher-photo">
+              <img src="figs/teacher.jpg" alt="講師写真">
+            </div>
+            <div class="teacher-text">
+              <div class="teacher-name">中本 優衣</div>
+              <p>
+                ドイツで音楽を学んだ経験も生かしながら、基礎を大切にした、ていねいで分かりやすいレッスンを心がけています。
+              </p>
+              <p>
+                また、楽譜を読む力を育てることや、楽譜から音楽をイメージして想像力をふくらませることも大切にしています。
+              </p>
+            </div>
           </div>
-          <div class="teacher-text">
-            <div class="teacher-name">中本 優衣</div>
-            <p>
-              はじめまして。中本ピアノ教室では、音楽を楽しむ気持ちを大切にしながら、お一人おひとりに合わせた丁寧なレッスンを心がけています。
-            </p>
-            <p>
-              小さなお子さまのはじめてのピアノから、大人の方の趣味のレッスン、音大受験やソルフェージュまで、それぞれの目標やペースに寄り添いながら無理なく学べる時間をご一緒できればと思っています。
-            </p>
-            <p>
-              ピアニストとしてのプロフィールは<a href="https://yuipiano.github.io" class="contact-link">こちら</a>
-            </p>
+          <div class="profile-mini">
+            <div class="profile-mini-title">プロフィール</div>
+            <ul>
+              <li>桐朋女子高等学校音楽科、桐朋学園大学、同大学大学院修士課程を修了</li>
+              <li>ケルン音楽舞踊大学にて学ぶ</li>
+              <li>ドイツではピアノ科修士課程および歌曲伴奏科修士課程を修了</li>
+              <li>国内外のコンクールで入賞</li>
+            </ul>
+            <div class="profile-mini-link">
+              ピアニストとしての詳しいプロフィールは<a href="https://yuipiano.github.io">こちら</a>
+            </div>
           </div>
         </div>
       </div>
@@ -445,10 +617,10 @@
           <div class="lesson-item">
             <h3>大人のレッスン</h3>
             <ul>
-              <li>初心者向けレッスン</li>
-              <li>憧れの曲に挑戦するレッスン</li>
-              <li>ブランクのある方向けの再開レッスン</li>
-              <li>基礎から学び直したい方向けレッスン</li>
+              <li>初心者の方にもやさしく対応</li>
+              <li>憧れの曲に挑戦したい方</li>
+              <li>ブランクのある方や基礎から学び直したい方</li>
+              <li>弾き方やテクニックのお悩みにも対応</li>
             </ul>
           </div>
 
@@ -467,31 +639,63 @@
               <li>聴音</li>
               <li>視唱</li>
               <li>楽典</li>
-              <li>音楽の基礎力を総合的に身につける指導</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="faq">
+    <section id="pricing">
       <div class="container">
-        <h2 class="section-title">よくあるご質問</h2>
-        <div class="faq">
-          <div class="faq-item">
-            <h3>Q. まったくの初心者でも大丈夫ですか？</h3>
-            <p>はい。楽譜が読めない方、ピアノに初めて触れる方にも、基礎から丁寧にレッスンいたします。</p>
+        <h2 class="section-title">料金</h2>
+        <div class="price-grid">
+          <div class="price-card">
+            <h3>子ども</h3>
+            <div class="price-time">30分 / 月謝制</div>
+            <ul class="price-list">
+              <li>月2回　6,000円</li>
+              <li>月3回　9,000円</li>
+              <li>月4回　12,000円</li>
+              <li>単発　3,500円<span class="price-note">学校伴奏や追加レッスンにも対応します</span></li>
+            </ul>
           </div>
+          <div class="price-card">
+            <h3>大人</h3>
+            <div class="price-time">45分 / 月謝制</div>
+            <ul class="price-list">
+              <li>月2回　8,000円</li>
+              <li>月3回　11,500円</li>
+              <li>月4回　15,000円</li>
+              <li>単発　4,500円<span class="price-note">ご都合に合わせて単発でも通っていただけます</span></li>
+            </ul>
+          </div>
+          <div class="price-card">
+            <h3>音大受験<br>ソルフェージュ</h3>
+            <div class="price-time">60分 / 1回</div>
+            <ul class="price-list">
+              <li>1回　5,000円<span class="price-note">内容や回数はご相談のうえ決定いたします</span></li>
+            </ul>
+          </div>
+        </div>
+        <p class="small" style="max-width:760px; margin:16px auto 0; text-align:center;">
+          ※上記は目安です。実際のレッスン内容や回数については、ご希望に応じてご相談のうえ対応いたします。
+        </p>
+      </div>
+    </section>
 
-          <div class="faq-item">
-            <h3>Q. 子どもと大人、どちらも通えますか？</h3>
-            <p>はい。お子さまから大人の方まで、幅広く対応しています。</p>
-          </div>
-
-          <div class="faq-item">
-            <h3>Q. 音大受験やソルフェージュにも対応していますか？</h3>
-            <p>はい。音大受験対策、聴音・視唱・楽典などのソルフェージュレッスンにも対応しています。</p>
-          </div>
+    <section id="trial">
+      <div class="container">
+        <h2 class="section-title">体験レッスン</h2>
+        <div class="schedule-panel">
+          <p>
+            はじめての方にも安心してお越しいただけるよう、体験レッスンをご用意しています。
+            教室の雰囲気やレッスンの進め方、ご希望に合うかどうかを実際にご確認いただけます。
+          </p>
+          <div class="schedule-time">30分　1,000円</div>
+          <p style="text-align:center; margin-top:0; color:#8a7c75;">
+            ご入会いただいた場合は、初回レッスン料から体験レッスン料を差し引きます。<br>
+            教室の詳しい場所は、体験レッスンの日程が決まりましたらご案内いたします。
+          </p>
         </div>
       </div>
     </section>
@@ -500,17 +704,36 @@
       <div class="container">
         <h2 class="section-title">お問い合わせ</h2>
         <div class="contact-box">
-          <p>
+          <p style="text-align:center; margin-top:0;">
             開講時期や体験レッスンについては、どうぞお気軽にお問い合わせください。<br>
             お子さまも大人の方も歓迎しております。
           </p>
-          <div class="contact-links">
-            <a href="mailto:nakamotopianoschool@gmail.com" class="contact-link">メールで問い合わせる</a>
+
+          <div class="contact-grid">
+            <div class="contact-card">
+              <h3>メールでのお問い合わせ</h3>
+              <br>
+              <div class="contact-links">
+                <a href="mailto:nakamotopianoschool@gmail.com" class="contact-link">メールで問い合わせる</a>
+              </div>
+              <p class="line-note">
+                （メールが送れない場合は<a href="lesson.html" class="contact-link">こちら</a><br>　のフォームをご利用ください）
+              </p>
+            </div>
+
+            <div class="contact-card">
+              <h3>LINE</h3>
+              <div class="line-qr">
+                <img src="figs/line.png" alt="公式LINEのQRコード">
+              </div>
+              <p class="line-note">
+                LINEからもお問い合わせいただけます。<br>
+                QRコードを読み取ってご連絡ください。
+              </p>
+            </div>
           </div>
-          <p>
-            （メールが送れない場合は<a href="lesson.html" class="contact-link">こちら</a>のコンタクトフォームをご利用ください）
-          </p>
-          <p class="small" style="margin-top:18px; margin-bottom:0;"></p>
+
+          <p class="small" style="margin-top:18px; margin-bottom:0; text-align:center;"></p>
         </div>
       </div>
     </section>
@@ -518,8 +741,7 @@
 
   <footer>
     <div class="container">
-      <p><strong>中本ピアノ教室</strong></p>
-      <p>音楽を楽しむ時間を、これから少しずつ育てていける教室を目指しています。</p>
+      <p>© 2026 中本ピアノ教室 All Rights Reserved.</p>
     </div>
   </footer>
 </body>
