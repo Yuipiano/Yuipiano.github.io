@@ -103,7 +103,8 @@
       margin-bottom: 3px;
     }
 
-    .hero h1 {
+    .hero h1,
+    .hero h2 {
       font-size: clamp(2rem, 4vw, 3rem);
       line-height: 1.7;
       font-weight: 500;
@@ -311,7 +312,8 @@
         padding-top: 30px;
       }
 
-      .hero h1 {
+      .hero h1,
+      .hero h2 {
         line-height: 1.55;
       }
 
@@ -331,7 +333,15 @@
       .teacher-photo {
         max-width: 180px;
         min-height: auto;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 3 / 4;
+        height: auto;
+        margin: 0 auto;
+      }
+
+      .teacher-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
 
       .soft-box,
@@ -366,7 +376,7 @@
           </div>
           <div class="hero-meta-item">
             <span class="hero-meta-label">時間</span>
-            平日・休日ともに 9:00〜17:00<br>（この時間外でも相談可能です）
+            平日・休日ともに 9:00〜18:00<br>（この時間外でも相談可能です）
           </div>
           <div class="hero-meta-item">
             <span class="hero-meta-label">対象</span>
@@ -377,22 +387,22 @@
             ヤマハのグランドピアノ
           </div>
         </div>
-        <h2>2026年４月に開講する小さなピアノ教室です</h2>
+        <h2>2026年4月に開講する小さなピアノ教室です</h2>
         <p class="lead">
           はじめてピアノに触れるお子さまから、趣味として楽しみたい大人の方、音大受験を目指す方まで。それぞれのご希望やペースに合わせて丁寧にレッスンできる教室を目指し、現在開講の準備を進めています。ソルフェージュにも対応予定です。
         </p>
         <div class="simple-info">ヤマハのグランドピアノで、ピアノ・ソルフェージュ・音大受験に対応予定です</div>
       </div>
       <div class="soft-box">
-          <h3>このような方に</h3>
-          <ul>
-            <li>お子さまに音楽を楽しく学んでほしい方</li>
-            <li>初めてピアノを始めたい方</li>
-            <li>もう一度ピアノを再開したい大人の方</li>
-            <li>音大受験に向けて準備を進めたい方</li>
-            <li>ソルフェージュを基礎から学びたい方</li>
-          </ul>
-        </div>
+        <h3>このような方に</h3>
+        <ul>
+          <li>お子さまに音楽を楽しく学んでほしい方</li>
+          <li>初めてピアノを始めたい方</li>
+          <li>もう一度ピアノを再開したい大人の方</li>
+          <li>音大受験に向けて準備を進めたい方</li>
+          <li>ソルフェージュを基礎から学びたい方</li>
+        </ul>
+      </div>
     </section>
 
     <section id="teacher">
@@ -410,7 +420,9 @@
             <p>
               小さなお子さまのはじめてのピアノから、大人の方の趣味のレッスン、音大受験やソルフェージュまで、それぞれの目標やペースに寄り添いながら無理なく学べる時間をご一緒できればと思っています。
             </p>
-            ピアニストとしてのプロフィールは<a href="https://yuipiano.github.io", class="contact-link">こちら</a>
+            <p>
+              ピアニストとしてのプロフィールは<a href="https://yuipiano.github.io" class="contact-link">こちら</a>
+            </p>
           </div>
         </div>
       </div>
@@ -480,11 +492,6 @@
             <h3>Q. 音大受験やソルフェージュにも対応していますか？</h3>
             <p>はい。音大受験対策、聴音・視唱・楽典などのソルフェージュレッスンにも対応しています。</p>
           </div>
-
-          <!-- <div class="faq-item">
-            <h3>Q. レッスンはいつ受けられますか？</h3>
-            <p>平日・休日ともに、9:00〜12:00の時間帯でレッスン可能です。</p>
-          </div> -->
         </div>
       </div>
     </section>
@@ -500,9 +507,10 @@
           <div class="contact-links">
             <a href="mailto:nakamotopianoschool@gmail.com" class="contact-link">メールで問い合わせる</a>
           </div>
-          （メールが送れない場合は<a href="lesson.html", class="contact-link">こちら</a>のコンタクトフォームをご利用ください）
-          <p class="small" style="margin-top:18px; margin-bottom:0;">
+          <p>
+            （メールが送れない場合は<a href="lesson.html" class="contact-link">こちら</a>のコンタクトフォームをご利用ください）
           </p>
+          <p class="small" style="margin-top:18px; margin-bottom:0;"></p>
         </div>
       </div>
     </section>
