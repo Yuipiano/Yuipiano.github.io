@@ -58,7 +58,15 @@ concerts:
   items:
     # 新しいコンサート情報は、下の例のように「- date:」から始めて追加してください。
     # URLがない場合は url と link_label の行を消して大丈夫です。
-    #
+    # - date: 2026年6月25日（木）
+    #   title: Music Salon Night
+    #   venue: Pianoma
+    #   description: |
+    #     「夜」をテーマにしたプログラムを予定
+    #   image: figs/concerts/music-salon-night-2026-06-25.jpg
+    #   image_alt: Music Salon Night のチラシ
+    #   url: https://example.com
+    #   link_label: 詳細を見る
     - date: 2026年6月25日（木）
       title: Music Salon Night
       venue: Pianoma
@@ -70,14 +78,14 @@ concerts:
       title: Music Salon Night
       venue: Pianoma
       description: |
-        コンサートの説明をここに書きます。
+        
       url: https://www.pianoma.art/
       link_label: 詳細を見る
     - date: 2026年8月19日（水）
       title: Music Salon Night
       venue: Pianoma
       description: |
-        コンサートの説明をここに書きます。
+        
       url: https://www.pianoma.art/
       link_label: 詳細を見る
 
