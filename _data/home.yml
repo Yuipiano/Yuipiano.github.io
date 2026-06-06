@@ -72,6 +72,8 @@ concerts:
       venue: Pianoma
       description: |
         「夜」をテーマにしたプログラムを予定
+      image: figs/pianoma-20260625.JPG
+      image_alg: Music Salon Night のチラシ
       url: https://www.pianoma.art/
       link_label: 詳細を見る
     - date: 2026年7月30日（木）
