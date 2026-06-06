@@ -1,0 +1,116 @@
+# このファイルはトップページ（index.html）の表示内容です。
+# 右側の文章だけを変更してください。行頭のスペースや「-」の数はなるべく変えないでください。
+
+site:
+  title: Yui Nakamoto
+  stylesheet: styles.css
+  google_site_verification: 2_UEWBKfsy8onJy-rwSsA8q1glcjaGS7zasnU07BFl8
+  script: script.js
+
+header:
+  logo: Yui Nakamoto
+  nav:
+    - label: Lesson page
+      url: lesson.html
+    - label: Biography
+      url: "#profile"
+    - label: Concert information
+      url: "#concerts"
+    - label: Gallery
+      url: "#gallery"
+    - label: Contact
+      url: "#contact"
+  socials:
+    - name: X
+      url: https://twitter.com/yuipianississis
+      image: figs/logo-x.png
+      alt: X logo
+      header_height: 14
+      footer_height: 16
+    - name: Instagram
+      url: https://www.instagram.com/yui_nakamoto_/
+      image: figs/logo-ig-color.png
+      alt: IG logo
+      header_height: 16
+      footer_height: 18
+
+profile:
+  section_title: Biography
+  image: figs/profile.jpg
+  image_alt: Profile image
+  name: 中本優衣 Yui Nakamoto
+  paragraphs:
+    - |
+      　4才よりピアノを始める。桐朋女子高等学校音楽科、桐朋学園大学、同大学大学院修士課程を修了。ミュンスター音楽大学、ケルン音楽舞踊大学ピアノ科修士課程および歌曲伴奏科修士課程を修了。
+      　2018、19年度福島育英会奨学生。Hartmut und Lore Schuler-Stiftung 奨学生。
+      　これまでにピアノを玉置善己、練木繁夫、野島稔、Arnulf von Arnim、Florence Milletの各氏に師事。室内楽を練木繁夫、Anthony Spiriの各氏に、歌曲伴奏をUlrich Eisenlohr氏に師事。洗足学園音楽大学演奏補助要員。
+    - |
+      　第39回全国町田ピアノコンクール第1位および町田市長賞(グランプリ）、審査員特別賞。第13回ルーマニア国際音楽コンクール第3位。第5回緑区新人演奏会オーディション最優秀賞。第9回 桐朋ピアノコンペティションファイナリスト。 多摩フレッシュ音楽コンサート2019にて優秀賞（第2位)。2019年度IMA奨励賞受賞。第15回アルベルト・ルーセルコンクール(フランス）第2位。2023年ブラームス国際コンクールセミファイナリスト。ケルン音楽舞踊大学の歌曲コンクール部門第2位、室内楽部門3位。
+      　岡山にて、チェリスト岩崎氏と伴奏者として共演。梅津時比古学長推薦によるベーゼンドルファーランチタイムコンサート等に出演する。デュッセルドルフ日本国総領事公邸にて式典演奏をする他、Ruhr音楽祭のピアノマラソンコンサートに出演。
+      　Schleswig-Holstein音楽祭にてElisabeth Leonskajaのマスタークラスを受講。霧島国際音楽祭にてEliso Virsaladzeのマスタークラスを受講。
+
+concerts:
+  enabled: true
+  section_title: Concert information
+  intro: |
+    今後の演奏会情報を掲載します。
+  empty_message: 現在掲載中のコンサート情報はありません。
+  items:
+    # 新しいコンサート情報は、下の例のように「- date:」から始めて追加してください。
+    # URLがない場合は url と link_label の行を消して大丈夫です。
+    #
+    # - date: 2026年8月1日（土）
+    #   title: コンサート名
+    #   venue: 会場名
+    #   description: |
+    #     コンサートの説明をここに書きます。
+    #   url: https://example.com
+    #   link_label: 詳細を見る
+
+gallery:
+  section_title: Gallery
+  videos:
+    - url: https://www.youtube.com/embed/-DCfh_kJl4k?si=z6D9aCAOs_sd_hvw
+      title: YouTube video player
+    - url: https://www.youtube.com/embed/DVebNFjBm3U?si=uXZl-fuPelrBOvca
+      title: YouTube video player
+
+lesson:
+  section_title: Lesson
+  lines:
+    - type: text
+      text: 中野区内にてピアノレッスンを承っております。
+    - type: link_line
+      before: ピアノ教室のホームページは
+      label: こちら
+      url: school.html
+      after: 。
+    - type: text
+      text: 下記フォームよりお気軽にご連絡ください。
+
+contact:
+  section_title: Contact
+  form_action: https://formspree.io/f/mjkkbdvg
+  fields:
+    - kind: input
+      type: text
+      id: name
+      name: name
+      label: お名前 / Name
+      required: true
+    - kind: input
+      type: email
+      id: email
+      name: email
+      label: メールアドレス / Email address
+      required: true
+    - kind: textarea
+      id: message
+      name: message
+      label: メッセージ / Message
+      rows: 5
+      required: true
+  submit_label: 送信 / Submit
+
+footer:
+  copyright: © 2024 Yui Nakamoto. All Rights Reserved.

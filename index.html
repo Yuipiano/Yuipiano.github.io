@@ -1,0 +1,129 @@
+---
+---
+{% assign home = site.data.home %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ home.site.title }}</title>
+    <link rel="stylesheet" href="{{ home.site.stylesheet }}">
+    {% if home.site.google_site_verification %}
+    <meta name="google-site-verification" content="{{ home.site.google_site_verification }}" />
+    {% endif %}
+</head>
+<body>
+    <header>
+        <div class="logo">{{ home.header.logo }}</div>
+        <nav>
+            <ul>
+                {% for item in home.header.nav %}
+                <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for social in home.header.socials %}
+                <li>
+                    <a href="{{ social.url }}">
+                        <img src="{{ social.image }}" alt="{{ social.alt }}" height="{{ social.header_height }}"/>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="profile">
+            <h1>{{ home.profile.section_title }}</h1>
+            <img src="{{ home.profile.image }}" alt="{{ home.profile.image_alt }}" class="profile-pic">
+            <div class="profile-container">
+                <h3>{{ home.profile.name }}</h3>
+                {% for paragraph in home.profile.paragraphs %}
+                <p>{{ paragraph | newline_to_br }}</p>
+                {% unless forloop.last %}<br>{% endunless %}
+                {% endfor %}
+            </div>
+        </section>
+
+        {% if home.concerts.enabled %}
+        <section id="concerts">
+            <h2>{{ home.concerts.section_title }}</h2>
+            {% if home.concerts.intro %}
+            <p class="concert-intro">{{ home.concerts.intro | newline_to_br }}</p>
+            {% endif %}
+
+            {% if home.concerts.items.size > 0 %}
+            <div class="concert-list">
+                {% for concert in home.concerts.items %}
+                <article class="concert-item">
+                    {% if concert.date %}<div class="concert-date">{{ concert.date }}</div>{% endif %}
+                    <h3>{{ concert.title }}</h3>
+                    {% if concert.venue %}<div class="concert-venue">{{ concert.venue }}</div>{% endif %}
+                    {% if concert.description %}<p>{{ concert.description | newline_to_br }}</p>{% endif %}
+                    {% if concert.url %}
+                    <a href="{{ concert.url }}" class="concert-link">{{ concert.link_label | default: "詳細を見る" }}</a>
+                    {% endif %}
+                </article>
+                {% endfor %}
+            </div>
+            {% elsif home.concerts.empty_message %}
+            <p class="concert-empty">{{ home.concerts.empty_message }}</p>
+            {% endif %}
+        </section>
+        {% endif %}
+
+        <section id="gallery">
+            <h2>{{ home.gallery.section_title }}</h2>
+            <div class="gallery">
+                {% for video in home.gallery.videos %}
+                <div class="video-container">
+                    <iframe src="{{ video.url }}" title="{{ video.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="lesson">
+            <h1>{{ home.lesson.section_title }}</h1>
+            <p>
+                {% for line in home.lesson.lines %}
+                    {% if line.type == "link_line" %}
+                    {{ line.before }}<a href="{{ line.url }}">{{ line.label }}</a>{{ line.after }}
+                    {% else %}
+                    {{ line.text }}
+                    {% endif %}
+                    {% unless forloop.last %}<br>{% endunless %}
+                {% endfor %}
+            </p>
+        </section>
+
+        <section id="contact">
+            <h2>{{ home.contact.section_title }}</h2>
+            <form action="{{ home.contact.form_action }}" method="post">
+                {% for field in home.contact.fields %}
+                <label for="{{ field.id }}">{{ field.label }}</label>
+                {% if field.kind == "textarea" %}
+                <textarea id="{{ field.id }}" name="{{ field.name }}" rows="{{ field.rows }}"{% if field.required %} required{% endif %}></textarea>
+                {% else %}
+                <input type="{{ field.type }}" id="{{ field.id }}" name="{{ field.name }}"{% if field.required %} required{% endif %}>
+                {% endif %}
+                {% endfor %}
+                <button type="submit">{{ home.contact.submit_label }}</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>{{ home.footer.copyright }}</p>
+        <div class="social-links">
+            {% for social in home.header.socials %}
+            <a href="{{ social.url }}">
+                <img src="{{ social.image }}" alt="{{ social.alt }}" height="{{ social.footer_height }}"/>
+            </a>
+            {% endfor %}
+        </div>
+    </footer>
+    {% if home.site.script %}
+    <script src="{{ home.site.script }}"></script>
+    {% endif %}
+</body>
+</html>

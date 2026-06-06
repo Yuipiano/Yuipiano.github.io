@@ -1,0 +1,693 @@
+---
+---
+{% assign data = site.data.school %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ data.site.title }}</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Yu Mincho", "YuMincho", serif;
+      color: #4b403a;
+      background: #fcfaf8;
+      line-height: 1.95;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(860px, 90%);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 34px 0 20px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 1.9rem;
+      letter-spacing: 0.08em;
+      color: #5d4a42;
+      margin-bottom: 10px;
+    }
+
+    .top-note {
+      font-size: 0.95rem;
+      color: #8b7b72;
+    }
+
+    .hero {
+      padding: 52px 0 56px;
+    }
+
+    .hero-inner {
+      text-align: center;
+      padding: 32px 0 10px;
+    }
+
+    .hero-photo {
+      max-width: 620px;
+      margin: 0 auto 22px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #f6f0eb;
+      border: 1px solid #ece1da;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .hero-photo img {
+      display: block;
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .photo-caption {
+      padding: 8px 12px;
+      font-size: 0.84rem;
+      color: #8a7c75;
+      background: #fff;
+      text-align: right;
+    }
+
+    .hero-meta {
+      max-width: 620px;
+      margin: 0 auto 20px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      text-align: left;
+    }
+
+    .hero-meta-item {
+      background: #fff;
+      border: 1px solid #efe5df;
+      border-radius: 14px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      color: #665952;
+    }
+
+    .hero-meta-label {
+      display: block;
+      font-size: 0.8rem;
+      color: #8b7b72;
+      margin-bottom: 3px;
+    }
+
+    .hero h1,
+    .hero h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      line-height: 1.7;
+      font-weight: 500;
+      margin: 0 0 24px;
+      color: #4c3d36;
+    }
+
+    .hero p.lead {
+      font-size: 1.04rem;
+      max-width: 720px;
+      margin: 0 auto 24px;
+      color: #665952;
+    }
+
+    .simple-info {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 18px;
+      border-top: 1px solid #ded2ca;
+      border-bottom: 1px solid #ded2ca;
+      color: #6b5d55;
+      font-size: 0.96rem;
+    }
+
+    section {
+      padding: 54px 0;
+      border-top: 1px solid #eee4de;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 22px;
+      font-size: 1.7rem;
+      font-weight: 500;
+      color: #4f4038;
+    }
+
+    .section-text {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #665952;
+    }
+
+    .soft-box {
+      max-width: 760px;
+      margin: 28px auto 0;
+      background: #fff;
+      border: 1px solid #efe5df;
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .soft-box h3 {
+      margin-top: 0;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #56453d;
+    }
+
+    .soft-box ul {
+      margin: 0;
+      padding-left: 1.2em;
+    }
+
+    .teacher-box {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #efe5df;
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .teacher-main {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .teacher-photo {
+      width: 100%;
+      height: auto;
+      min-height: auto;
+      aspect-ratio: 3 / 4;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #f6f0eb;
+      border: 1px solid #ece1da;
+    }
+
+    .teacher-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .teacher-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #56453d;
+      margin-bottom: 10px;
+    }
+
+    .teacher-text p {
+      margin-top: 0;
+      margin-bottom: 14px;
+      color: #665952;
+    }
+
+    .teacher-note {
+      font-size: 0.92rem;
+      color: #8a7c75;
+    }
+
+    .profile-mini {
+      max-width: 520px;
+      margin: 20px auto 0;
+      padding: 16px 18px 12px;
+      background: #fcfaf8;
+      border: 1px solid #efe5df;
+      border-radius: 14px;
+    }
+
+    .profile-mini-title {
+      font-size: 0.95rem;
+      color: #8b7b72;
+      margin-bottom: 8px;
+    }
+
+    .profile-mini ul {
+      margin: 0 0 6px;
+      padding-left: 1.2em;
+      color: #665952;
+    }
+
+    .profile-mini-link {
+      margin: 6px 0 0;
+      font-size: 0.85rem;
+      color: #b0a59f;
+      line-height: 1.7;
+    }
+
+    .profile-mini-link a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .teacher-text {
+      min-width: 0;
+    }
+
+    .lesson-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .lesson-item {
+      background: #fff;
+      border: 1px solid #efe5df;
+      border-radius: 18px;
+      padding: 20px 22px;
+    }
+
+    .lesson-item h3 {
+      margin: 0 0 10px;
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: #56453d;
+    }
+
+    .lesson-item ul {
+      margin: 0;
+      padding-left: 1.2em;
+      line-height: 1.8;
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .price-card {
+      background: #fff;
+      border: 1px solid #efe5df;
+      border-radius: 18px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .price-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #56453d;
+    }
+
+    .price-time {
+      font-size: 0.95rem;
+      color: #8b7b72;
+      margin-bottom: 10px;
+    }
+
+    .price-amount {
+      font-size: 1.6rem;
+      color: #8f6858;
+      margin-bottom: 14px;
+    }
+
+    .price-card p {
+      margin: 0;
+      color: #665952;
+      font-size: 0.94rem;
+    }
+
+    .price-list {
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+      text-align: left;
+      color: #665952;
+      font-size: 0.95rem;
+      line-height: 1.9;
+    }
+
+    .price-list li {
+      border-top: 1px solid #f1e7e1;
+      padding: 10px 0;
+    }
+
+    .price-list li:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .price-note {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.88rem;
+      color: #8b7b72;
+    }
+
+    .schedule-panel,
+    .faq,
+    .contact-box {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .schedule-panel,
+    .faq-item,
+    .contact-box {
+      background: #fff;
+      border: 1px solid #efe5df;
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .schedule-time {
+      text-align: center;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      color: #8f6858;
+      margin: 10px 0;
+    }
+
+    .faq {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      color: #56453d;
+    }
+
+    .contact-box {
+      text-align: left;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 22px;
+      align-items: stretch;
+    }
+
+    .contact-card {
+      background: #fcfaf8;
+      border: 1px solid #efe5df;
+      border-radius: 16px;
+      padding: 22px;
+      text-align: center;
+    }
+
+    .contact-card h3 {
+      margin: 0 0 36px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #56453d;
+    }
+
+    .contact-links {
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-link {
+      display: inline-block;
+      padding: 10px 0;
+      color: #6e574d;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .line-qr {
+      margin: 14px auto 10px;
+      max-width: 180px;
+    }
+
+    .line-qr img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid #ece1da;
+      border-radius: 12px;
+      background: #fff;
+      padding: 8px;
+    }
+
+    .line-note {
+      margin: 10px 0 0;
+      font-size: 0.9rem;
+      color: #8a7c75;
+      line-height: 1.8;
+    }
+
+    footer {
+      padding: 34px 0 50px;
+      text-align: center;
+      color: #7b6d66;
+      font-size: 0.95rem;
+    }
+
+    .small {
+      font-size: 0.92rem;
+      color: #8a7c75;
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        padding-top: 30px;
+      }
+
+      .hero h1,
+      .hero h2 {
+        line-height: 1.55;
+      }
+
+      .hero-photo img {
+        height: 170px;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .teacher-main {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .teacher-photo {
+        max-width: 180px;
+        min-height: auto;
+        aspect-ratio: 3 / 4;
+        height: auto;
+        margin: 0 auto;
+      }
+
+      .teacher-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .price-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lesson-list {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .contact-card h3 {
+        margin-bottom: 14px;
+      }
+
+      .soft-box,
+      .teacher-box,
+      .lesson-item,
+      .schedule-panel,
+      .faq-item,
+      .contact-box,
+      .price-card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">{{ data.site.logo }}</div>
+      <div class="top-note">{{ data.site.top_note }}</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-photo">
+          <img src="{{ data.hero.photo }}" alt="{{ data.hero.photo_alt }}">
+        </div>
+        <div class="hero-meta">
+          {% for item in data.hero.meta %}
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">{{ item.label }}</span>
+            {{ item.text | newline_to_br }}
+          </div>
+          {% endfor %}
+        </div>
+        <h2>{{ data.hero.heading }}</h2>
+        <p class="lead">
+          {{ data.hero.lead }}
+        </p>
+        <div class="simple-info">{{ data.hero.simple_info }}</div>
+      </div>
+    </section>
+
+    <section id="teacher">
+      <div class="container">
+        <h2 class="section-title">{{ data.teacher.section_title }}</h2>
+        <div class="teacher-box">
+          <div class="teacher-main">
+            <div class="teacher-photo">
+              <img src="{{ data.teacher.photo }}" alt="{{ data.teacher.photo_alt }}">
+            </div>
+            <div class="teacher-text">
+              <div class="teacher-name">{{ data.teacher.name }}</div>
+              {% for paragraph in data.teacher.paragraphs %}
+              <p>{{ paragraph }}</p>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="profile-mini">
+            <div class="profile-mini-title">{{ data.teacher.profile.title }}</div>
+            <ul>
+              {% for item in data.teacher.profile.items %}
+              <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+            <div class="profile-mini-link">
+              {{ data.teacher.profile.link_text_before }}<a href="{{ data.teacher.profile.link_url }}">{{ data.teacher.profile.link_label }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="lessons">
+      <div class="container">
+        <h2 class="section-title">{{ data.lessons.section_title }}</h2>
+        <div class="lesson-list">
+          {% for lesson in data.lessons.items %}
+          <div class="lesson-item">
+            <h3>{{ lesson.title }}</h3>
+            <ul>
+              {% for point in lesson.points %}
+              <li>{{ point }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <h2 class="section-title">{{ data.pricing.section_title }}</h2>
+        <div class="price-grid">
+          {% for card in data.pricing.cards %}
+          <div class="price-card">
+            <h3>{% for line in card.title_lines %}{{ line }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}</h3>
+            <div class="price-time">{{ card.time }}</div>
+            <ul class="price-list">
+              {% for price in card.prices %}
+              <li>{{ price.text }}{% if price.note %}<span class="price-note">{{ price.note }}</span>{% endif %}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+        </div>
+        <p class="small" style="max-width:760px; margin:16px auto 0; text-align:center;">
+          {{ data.pricing.note }}
+        </p>
+      </div>
+    </section>
+
+    <section id="trial">
+      <div class="container">
+        <h2 class="section-title">{{ data.trial.section_title }}</h2>
+        <div class="schedule-panel">
+          {% for paragraph in data.trial.paragraphs %}
+          <p>{{ paragraph }}</p>
+          {% endfor %}
+          <div class="schedule-time">{{ data.trial.price }}</div>
+          <p style="text-align:center; margin-top:0; color:#8a7c75;">
+            {{ data.trial.note | newline_to_br }}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">{{ data.contact.section_title }}</h2>
+        <div class="contact-box">
+          <p style="text-align:center; margin-top:0;">
+            {{ data.contact.intro | newline_to_br }}
+          </p>
+
+          <div class="contact-grid">
+            <div class="contact-card">
+              <h3>{{ data.contact.email.title }}</h3>
+              <div class="contact-links">
+                <a href="mailto:{{ data.contact.email.address }}" class="contact-link">{{ data.contact.email.link_label }}</a>
+              </div>
+              <p class="line-note">
+                {{ data.contact.email.fallback_before }}<a href="{{ data.contact.email.fallback_link_url }}" class="contact-link">{{ data.contact.email.fallback_link_label }}</a><br>　{{ data.contact.email.fallback_after }}
+              </p>
+            </div>
+
+            <div class="contact-card">
+              <h3>{{ data.contact.line.title }}</h3>
+              <div class="line-qr">
+                <img src="{{ data.contact.line.qr }}" alt="{{ data.contact.line.qr_alt }}">
+              </div>
+              <p class="line-note">
+                {{ data.contact.line.note | newline_to_br }}
+              </p>
+            </div>
+          </div>
+
+          <p class="small" style="margin-top:18px; margin-bottom:0; text-align:center;"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>{{ data.site.footer }}</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yui Nakamoto</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Yui Nakamoto</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Main page</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="https://twitter.com/yuipianississis">
+                    <img src="figs/logo-x.png" alt="X logo" height="14"/>
+                </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/yui_nakamoto_/">
+                        <img src="figs/logo-ig-color.png" alt="IG logo" height="16"/>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="lesson">
+            <h1>Lesson</h1>
+            <!-- <img src="figs/profile.jpg" alt="Profile image" class="profile-pic">
+            <div class="profile-container"> -->
+                <p>
+                    中野区内にてピアノレッスンを承っております。
+                    <br>
+                    下記フォームよりお気軽にご連絡ください。
+                </p>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <form action="https://formspree.io/f/mjkkbdvg" method="post">
+                <label for="name">お名前 / Name</label>
+                <input type="text" id="name" name="name" required>
+        
+                <label for="email">メールアドレス / Email address</label>
+                <input type="email" id="email" name="email" required>
+        
+                <label for="message">メッセージ / Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+        
+                <button type="submit">送信 / Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Yui Nakamoto. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="https://twitter.com/yuipianississis">
+                <img src="figs/logo-x.png" alt="X logo" height="16"/>
+            </a>
+            <a href="https://www.instagram.com/yui_nakamoto_/">
+                <img src="figs/logo-ig-color.png" alt="IG logo" height="18"/>
+            </a>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
