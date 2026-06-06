@@ -55,14 +55,23 @@
             {% if home.concerts.items.size > 0 %}
             <div class="concert-list">
                 {% for concert in home.concerts.items %}
-                <article class="concert-item">
-                    {% if concert.date %}<div class="concert-date">{{ concert.date }}</div>{% endif %}
-                    <h3>{{ concert.title }}</h3>
-                    {% if concert.venue %}<div class="concert-venue">{{ concert.venue }}</div>{% endif %}
-                    {% if concert.description %}<p>{{ concert.description | newline_to_br }}</p>{% endif %}
-                    {% if concert.url %}
-                    <a href="{{ concert.url }}" class="concert-link">{{ concert.link_label | default: "詳細を見る" }}</a>
+                <article class="concert-card{% if concert.image %} concert-card-with-image{% endif %}">
+                    {% if concert.image %}
+                    <div class="concert-image">
+                        {% if concert.url %}<a href="{{ concert.url }}" aria-label="{{ concert.title }} の詳細を見る">{% endif %}
+                        <img src="{{ concert.image }}" alt="{{ concert.image_alt | default: concert.title }}">
+                        {% if concert.url %}</a>{% endif %}
+                    </div>
                     {% endif %}
+                    <div class="concert-body">
+                        {% if concert.date %}<div class="concert-date">{{ concert.date }}</div>{% endif %}
+                        <h3>{{ concert.title }}</h3>
+                        {% if concert.venue %}<div class="concert-venue">{{ concert.venue }}</div>{% endif %}
+                        {% if concert.description %}<p>{{ concert.description | newline_to_br }}</p>{% endif %}
+                        {% if concert.url %}
+                        <a href="{{ concert.url }}" class="concert-link">{{ concert.link_label | default: "詳細を見る" }}</a>
+                        {% endif %}
+                    </div>
                 </article>
                 {% endfor %}
             </div>
