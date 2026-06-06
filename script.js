@@ -1,9 +1,3 @@
-// script.js
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("Page Loaded");
-    // 必要に応じて追加機能を実装
-});
-
 document.addEventListener("DOMContentLoaded", () => {
     const lightbox = document.getElementById("image-lightbox");
     const lightboxImg = document.getElementById("image-lightbox-img");
