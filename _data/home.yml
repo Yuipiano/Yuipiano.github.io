@@ -10,11 +10,11 @@ site:
 header:
   logo: Yui Nakamoto
   nav:
-    - label: Lesson page
+    - label: Lesson
       url: lesson.html
     - label: Biography
       url: "#profile"
-    - label: Concert information
+    - label: Concert
       url: "#concerts"
     - label: Gallery
       url: "#gallery"

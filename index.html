@@ -57,19 +57,17 @@
                 {% for concert in home.concerts.items %}
                 <article class="concert-card{% if concert.image %} concert-card-with-image{% endif %}">
                     {% if concert.image %}
-                      <button
-                        type="button"
-                        class="concert-image-button"
-                        data-lightbox-src="{{ concert.image | relative_url }}"
-                        data-lightbox-alt="{{ concert.image_alt | default: concert.title }}"
-                        aria-label="{{ concert.title }} の画像を拡大表示"
-                      >
-                        <img
-                          src="{{ concert.image | relative_url }}"
-                          alt="{{ concert.image_alt | default: concert.title }}"
-                          class="concert-image"
+                    <div class="concert-image">
+                        <button
+                            type="button"
+                            class="concert-image-button"
+                            data-lightbox-src="{{ concert.image }}"
+                            data-lightbox-alt="{{ concert.image_alt | default: concert.title }}"
+                            aria-label="{{ concert.title }} の画像を拡大表示"
                         >
-                      </button>
+                            <img src="{{ concert.image }}" alt="{{ concert.image_alt | default: concert.title }}">
+                        </button>
+                    </div>
                     {% endif %}
                     <div class="concert-body">
                         {% if concert.date %}<div class="concert-date">{{ concert.date }}</div>{% endif %}
@@ -140,8 +138,8 @@
         </div>
     </footer>
     <div class="image-lightbox" id="image-lightbox" aria-hidden="true">
-      <button type="button" class="image-lightbox-close" aria-label="閉じる">×</button>
-      <img src="" alt="" class="image-lightbox-img" id="image-lightbox-img">
+        <button type="button" class="image-lightbox-close" aria-label="閉じる">×</button>
+        <img src="" alt="" class="image-lightbox-img" id="image-lightbox-img">
     </div>
     {% if home.site.script %}
     <script src="{{ home.site.script }}"></script>

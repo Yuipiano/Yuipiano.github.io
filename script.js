@@ -1,3 +1,4 @@
+// script.js
 document.addEventListener("DOMContentLoaded", () => {
     const lightbox = document.getElementById("image-lightbox");
     const lightboxImg = document.getElementById("image-lightbox-img");
@@ -9,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", () => {
             const src = button.dataset.lightboxSrc;
             const alt = button.dataset.lightboxAlt || "";
+
+            if (!src) return;
 
             lightboxImg.src = src;
             lightboxImg.alt = alt;
