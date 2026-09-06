@@ -45,13 +45,32 @@
             <form action="https://formspree.io/f/mjkkbdvg" method="post">
                 <label for="name">お名前 / Name</label>
                 <input type="text" id="name" name="name" required>
-        
+
                 <label for="email">メールアドレス / Email address</label>
                 <input type="email" id="email" name="email" required>
-        
+
+                <label for="child">お子さまの場合：お名前・年齢</label>
+                <input type="text" id="child" name="child" placeholder="例：山田 花子（5歳）">
+
+                <span class="form-label">ピアノのご経験</span>
+                <div class="inquiry-radio-group">
+                    <label><input type="radio" name="experience" value="はじめて" checked> はじめて</label>
+                    <label><input type="radio" name="experience" value="経験あり"> 経験あり（<input type="text" name="experience_years" class="inquiry-years-input" placeholder="3"> 年程度）</label>
+                </div>
+
+                <span class="form-label">ご希望の内容</span>
+                <div class="inquiry-radio-group">
+                    <label><input type="radio" name="request_type" value="体験レッスン" checked> 体験レッスン</label>
+                    <label><input type="radio" name="request_type" value="入会について"> 入会について</label>
+                    <label><input type="radio" name="request_type" value="その他"> その他</label>
+                </div>
+
+                <label for="time">ご希望の曜日・時間帯</label>
+                <input type="text" id="time" name="time" placeholder="例：土曜午前">
+
                 <label for="message">メッセージ / Message</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
-        
+
                 <button type="submit">送信 / Submit</button>
             </form>
         </section>

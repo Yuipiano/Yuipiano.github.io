@@ -196,6 +196,41 @@ form button:hover {
     background-color: #555;
 }
 
+form input[type="radio"] {
+    width: auto;
+    max-width: none;
+    padding: 0;
+}
+
+.form-label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.inquiry-radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 16px;
+    width: 80%;
+    max-width: 400px;
+}
+
+.inquiry-radio-group label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.inquiry-years-input {
+    width: 3.4em;
+    max-width: 3.4em;
+    display: inline-block;
+    padding: 4px 6px;
+}
+
 #gallery {
     margin-bottom: -100px; /* 必要に応じて調整 */
 }
