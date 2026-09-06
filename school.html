@@ -455,6 +455,90 @@
       line-height: 1.8;
     }
 
+    .contact-card-email {
+      text-align: left;
+    }
+
+    .contact-card-email h3 {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .inquiry-form .form-row {
+      margin-bottom: 14px;
+    }
+
+    .inquiry-form label,
+    .inquiry-form .form-label {
+      display: block;
+      font-size: 0.85rem;
+      color: #8b7b72;
+      margin-bottom: 5px;
+    }
+
+    .inquiry-form input[type="text"],
+    .inquiry-form textarea {
+      width: 100%;
+      padding: 9px 11px;
+      border: 1px solid #efe5df;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: #4b403a;
+      background: #fff;
+    }
+
+    .inquiry-form textarea {
+      resize: vertical;
+    }
+
+    .inquiry-radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+    }
+
+    .inquiry-radio-group label {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.92rem;
+      color: #665952;
+      margin-bottom: 0;
+    }
+
+    .inquiry-years-input {
+      width: 3.4em !important;
+      display: inline-block !important;
+      padding: 4px 6px !important;
+    }
+
+    .inquiry-submit {
+      display: block;
+      width: 100%;
+      border: none;
+      background: #8f6858;
+      color: #fff;
+      padding: 13px;
+      border-radius: 10px;
+      font-size: 0.98rem;
+      font-family: inherit;
+      cursor: pointer;
+      margin-top: 4px;
+    }
+
+    .inquiry-submit:hover {
+      background: #7a584a;
+    }
+
+    .inquiry-help {
+      margin: 12px 0 0;
+      font-size: 0.86rem;
+      color: #8a7c75;
+      line-height: 1.8;
+      text-align: center;
+    }
+
     footer {
       padding: 34px 0 50px;
       text-align: center;
@@ -657,11 +741,60 @@
           </p>
 
           <div class="contact-grid">
-            <div class="contact-card">
+            <div class="contact-card contact-card-email">
               <h3>{{ data.contact.email.title }}</h3>
-              <div class="contact-links">
-                <a href="mailto:{{ data.contact.email.address }}" class="contact-link">{{ data.contact.email.link_label }}</a>
-              </div>
+
+              <form id="inquiry-form" class="inquiry-form">
+                <div class="form-row">
+                  <label for="inq-name">お名前</label>
+                  <input type="text" id="inq-name" placeholder="例：山田 太郎">
+                </div>
+
+                <div class="form-row">
+                  <label for="inq-child">お子さまの場合：お名前・年齢</label>
+                  <input type="text" id="inq-child" placeholder="例：山田 花子（5歳）">
+                </div>
+
+                <div class="form-row">
+                  <span class="form-label">ピアノのご経験</span>
+                  <div class="inquiry-radio-group">
+                    <label><input type="radio" name="inq-exp" value="はじめて" checked> はじめて</label>
+                    <label><input type="radio" name="inq-exp" value="経験あり"> 経験あり（<input type="text" id="inq-exp-years" class="inquiry-years-input" placeholder="3"> 年程度）</label>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <span class="form-label">ご希望の内容</span>
+                  <div class="inquiry-radio-group">
+                    <label><input type="radio" name="inq-type" value="体験レッスン" checked> 体験レッスン</label>
+                    <label><input type="radio" name="inq-type" value="入会について"> 入会について</label>
+                    <label><input type="radio" name="inq-type" value="その他"> その他</label>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <label for="inq-time">ご希望の曜日・時間帯</label>
+                  <input type="text" id="inq-time" placeholder="例：土曜午前">
+                </div>
+
+                <div class="form-row">
+                  <label for="inq-message">メッセージ・ご質問</label>
+                  <textarea id="inq-message" rows="4" placeholder="ご質問やご相談内容があればご記入ください"></textarea>
+                </div>
+
+                <button type="submit" class="inquiry-submit">{{ data.contact.email.link_label }}</button>
+              </form>
+
+              <p class="inquiry-help">
+                ボタンを押すと、入力内容が反映された状態でお使いのメールソフトが開きます。内容をご確認のうえ、そのまま送信してください。
+              </p>
+
+              <noscript>
+                <div class="contact-links">
+                  <a href="mailto:{{ data.contact.email.address }}?subject={{ data.contact.email.subject | cgi_escape | replace: '+', '%20' }}&amp;body={{ data.contact.email.body | cgi_escape | replace: '+', '%20' }}" class="contact-link">{{ data.contact.email.link_label }}</a>
+                </div>
+              </noscript>
+
               <p class="line-note">
                 {{ data.contact.email.fallback_before }}<a href="{{ data.contact.email.fallback_link_url }}" class="contact-link">{{ data.contact.email.fallback_link_label }}</a><br>　{{ data.contact.email.fallback_after }}
               </p>
@@ -689,5 +822,59 @@
       <p>{{ data.site.footer }}</p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('inquiry-form');
+      if (!form) return;
+
+      var mailAddress = {{ data.contact.email.address | jsonify }};
+      var mailSubject = {{ data.contact.email.subject | jsonify }};
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var name = document.getElementById('inq-name').value.trim();
+        var child = document.getElementById('inq-child').value.trim();
+        var expChecked = form.querySelector('input[name="inq-exp"]:checked');
+        var expValue = expChecked ? expChecked.value : '';
+        var expYears = document.getElementById('inq-exp-years').value.trim();
+        var typeChecked = form.querySelector('input[name="inq-type"]:checked');
+        var typeValue = typeChecked ? typeChecked.value : '';
+        var time = document.getElementById('inq-time').value.trim();
+        var message = document.getElementById('inq-message').value.trim();
+
+        var blank = '　　';
+        var expLine = expValue === '経験あり'
+          ? '経験あり（約' + (expYears || blank) + '年）'
+          : (expValue || blank);
+
+        var lines = [
+          '中本ピアノ教室 御中',
+          '',
+          'お名前：' + (name || blank),
+          '（お子さまの場合）お子さまのお名前・年齢：' + (child || blank),
+          '',
+          'ピアノのご経験：' + expLine,
+          '',
+          'ご希望の内容：' + (typeValue || blank),
+          '',
+          'ご希望の曜日・時間帯：' + (time || blank),
+          '',
+          'メッセージ・ご質問：',
+          (message || blank),
+          '',
+          '------------------------------',
+          '本メールは中本ピアノ教室ウェブサイトのお問い合わせフォームから送信されました。'
+        ];
+
+        var mailto = 'mailto:' + mailAddress
+          + '?subject=' + encodeURIComponent(mailSubject)
+          + '&body=' + encodeURIComponent(lines.join('\n'));
+
+        window.location.href = mailto;
+      });
+    })();
+  </script>
 </body>
 </html>
