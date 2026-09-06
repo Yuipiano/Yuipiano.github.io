@@ -97,21 +97,59 @@ contact:
       type: text
       id: name
       name: name
-      label: お名前 / Name
+      label: お名前
+      placeholder: "例：山田 太郎"
       required: true
     - kind: input
       type: email
       id: email
       name: email
-      label: メールアドレス / Email address
+      label: メールアドレス
       required: true
+    - kind: input
+      type: text
+      id: child
+      name: child
+      label: "お子さまの場合：お名前・年齢"
+      placeholder: "例：山田 花子（5歳）"
+    - kind: radio_group
+      name: experience
+      label: ピアノのご経験
+      options:
+        - value: はじめて
+          label: はじめて
+          checked: true
+        - value: 経験あり
+          label_before: "経験あり（"
+          label_after: " 年程度）"
+          extra_input:
+            name: experience_years
+            placeholder: "3"
+    - kind: radio_group
+      name: request_type
+      label: ご希望の内容
+      options:
+        - value: 体験レッスン
+          label: 体験レッスン
+          checked: true
+        - value: 入会について
+          label: 入会について
+        - value: その他
+          label: その他
+    - kind: input
+      type: text
+      id: time
+      name: time
+      label: ご希望の曜日・時間帯
+      placeholder: "例：土曜午前"
     - kind: textarea
       id: message
       name: message
-      label: メッセージ / Message
+      label: メッセージ・ご質問
       rows: 5
+      placeholder: "ご質問やご相談内容があればご記入ください"
       required: true
-  submit_label: 送信 / Submit
+  submit_label: 送信
 
 footer:
   copyright: © 2024 Yui Nakamoto. All Rights Reserved.

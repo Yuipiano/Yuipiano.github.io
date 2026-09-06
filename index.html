@@ -116,11 +116,23 @@
             <h2>{{ home.contact.section_title }}</h2>
             <form action="{{ home.contact.form_action }}" method="post">
                 {% for field in home.contact.fields %}
+                {% if field.kind == "radio_group" %}
+                <span class="form-label">{{ field.label }}</span>
+                <div class="inquiry-radio-group">
+                    {% for option in field.options %}
+                    <label>
+                        <input type="radio" name="{{ field.name }}" value="{{ option.value }}"{% if option.checked %} checked{% endif %}>
+                        {{ option.label }}{{ option.label_before }}{% if option.extra_input %}<input type="text" name="{{ option.extra_input.name }}" class="inquiry-years-input" placeholder="{{ option.extra_input.placeholder }}">{% endif %}{{ option.label_after }}
+                    </label>
+                    {% endfor %}
+                </div>
+                {% else %}
                 <label for="{{ field.id }}">{{ field.label }}</label>
                 {% if field.kind == "textarea" %}
-                <textarea id="{{ field.id }}" name="{{ field.name }}" rows="{{ field.rows }}"{% if field.required %} required{% endif %}></textarea>
+                <textarea id="{{ field.id }}" name="{{ field.name }}" rows="{{ field.rows }}"{% if field.required %} required{% endif %}{% if field.placeholder %} placeholder="{{ field.placeholder }}"{% endif %}></textarea>
                 {% else %}
-                <input type="{{ field.type }}" id="{{ field.id }}" name="{{ field.name }}"{% if field.required %} required{% endif %}>
+                <input type="{{ field.type }}" id="{{ field.id }}" name="{{ field.name }}"{% if field.required %} required{% endif %}{% if field.placeholder %} placeholder="{{ field.placeholder }}"{% endif %}>
+                {% endif %}
                 {% endif %}
                 {% endfor %}
                 <button type="submit">{{ home.contact.submit_label }}</button>
